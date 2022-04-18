@@ -1,0 +1,16 @@
+https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero/
+
+class Solution {
+    public int numberOfSteps(int num) {
+        return numSteps(num,0); //helperFunction
+    }
+    static int numSteps(int n,int c){
+        if(n == 0){
+            return  c;
+        }
+        if(n % 2 == 0){
+            return numSteps(n/2,++c);
+        }
+        return numSteps(n-1,++c);
+    }
+}
