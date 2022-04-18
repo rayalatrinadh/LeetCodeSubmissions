@@ -1,0 +1,20 @@
+//https://leetcode.com/problems/palindrome-number/
+
+class Solution {
+    public boolean isPalindrome(int x) {
+        if(x < 0){
+            return false;
+        }
+        int digits = (int)Math.log10(x) + 1;
+       int reverseDigit =  helper(x,digits);
+        boolean ans = x == reverseDigit ? true:false;
+        return ans;
+        
+    }
+    static int helper(int num,int digits){
+        if(num % 10 == num){
+            return num;
+        }
+        return (num%10) * (int)(Math.pow(10,digits-1)) + helper(num/10,digits-1);
+    }
+}
